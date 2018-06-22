@@ -1,0 +1,28 @@
+{
+  "name": "style-url-webpack",
+  "version": "1.0.0",
+  "description": "Style Url Webpack loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VagnerSilva/style-url-webpack.git"
+  },
+  "keywords": [
+    "style",
+    "scss",
+    "css",
+    "sass",
+    "webpack",
+    "loader",
+    "url"
+  ],
+  "author": "Vagner Silva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VagnerSilva/style-url-webpack/issues"
+  },
+  "homepage": "https://github.com/VagnerSilva/style-url-webpack#readme"
+}

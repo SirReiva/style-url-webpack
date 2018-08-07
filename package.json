@@ -4,11 +4,28 @@
   "description": "Style Url Webpack loader",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "webpack --config ./webpack.config.test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VagnerSilva/style-url-webpack.git"
+  },
+  "devDependencies": {
+    "@webcomponents/webcomponentsjs": "^2.0.3",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "cssnano": "^4.0.5",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-angular": "^3.3.0",
+    "eslint-plugin-import": "^2.13.0",
+    "glob": "^7.1.2",
+    "node-sass": "^4.9.2",
+    "postcss-preset-env": "^5.3.0",
+    "webpack": "^4.16.1"
   },
   "keywords": [
     "style",
@@ -24,5 +41,11 @@
   "bugs": {
     "url": "https://github.com/VagnerSilva/style-url-webpack/issues"
   },
-  "homepage": "https://github.com/VagnerSilva/style-url-webpack#readme"
+  "homepage": "https://github.com/VagnerSilva/style-url-webpack#readme",
+  "dependencies": {
+    "autoprefixer": "^9.1.0",
+    "loader-utils": "^1.1.0",
+    "pify": "^3.0.0",
+    "postcss": "^7.0.2"
+  }
 }

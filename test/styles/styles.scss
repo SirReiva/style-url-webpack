@@ -1,0 +1,15 @@
+@import './index.scss';
+:root {
+  --mainColor: #12345678;
+}
+.myclass {
+  display: flex;
+  color: red;
+
+  &.test {
+    color: blue;
+    ::placeholder {
+      color: gray;
+    }
+  }
+}

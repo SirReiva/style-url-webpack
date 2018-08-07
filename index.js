@@ -28,20 +28,32 @@ function compile(css, source, callback) {
     .catch(err => callback(err));
 }
 
+
+// find url
+class FindUrlCss extends RegExp {
+  [Symbol.match](str) {
+    const result = RegExp.prototype[Symbol.match].call(this, str);
+    if (result) {
+      return result[3];
+    }
+    return false;
+  }
+}
+
 /**
  * Convert object { styleUrl: ''} to { styleUrl: css}
  * @param {*} source
  */
 module.exports = function (source) {
-  const styleUrl = source.match(pattern);
-  if (styleUrl === null) {
-    throw new Error('Invalid format - styleUrl: formats (sass, scss, css)');
+  const styleUrl = source.match(new FindUrlCss(pattern));
+  if (styleUrl === false) {
+    return source;
   }
 
   const callback = this.async();
-  const url = styleUrl[3];
+
   const dirname = path.dirname(this.resourcePath);
-  const request = urlToRequest(url, dirname);
+  const request = urlToRequest(styleUrl, dirname);
   const resolve = path.resolve(dirname, request);
   const normalize = path.normalize(resolve);
   const ext = path.extname(request);
@@ -52,8 +64,7 @@ module.exports = function (source) {
       file: normalize,
     }, (err, result) => {
       if (err) {
-        callback(err);
-        return;
+        return source;
       }
 
       css = result.css.toString();
@@ -64,8 +75,7 @@ module.exports = function (source) {
   if (ext === '.css') {
     fs.readFile(normalize, 'utf-8', (err, result) => {
       if (err) {
-        callback(err);
-        return;
+        return source;
       }
 
       compile(result, source, callback);

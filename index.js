@@ -32,7 +32,7 @@ function compile(css, source, callback) {
  * Convert object { styleUrl: ''} to { styleUrl: css}
  * @param {*} source
  */
-module.exports = async function (source) {
+module.exports = function (source) {
   const styleUrl = source.match(pattern);
   if (styleUrl === null) {
     throw new Error('Invalid format - styleUrl: formats (sass, scss, css)');
